@@ -26,4 +26,155 @@ form:
       validate:
         type: bool
 
+    limit:
+      type: text
+      label: Limit
+      size: medium
+      default: 5
+      validate:
+        type: number
+        min: 1
+      help: "The number of related pages to display"
 
+    show_score:
+      type: toggle
+      label: Show Score
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+      help: Toggle to determine if scores should be displayed in output
+
+    score_threshold:
+      type: text
+      label: Score Threshold
+      size: medium
+      default: 20
+      validate:
+        type: number
+        min: 0
+      help: Minimum score needed to show up in the list
+
+    filter.items:
+        type: array
+        label: Filter Items
+        help: Supports @self, @page, and @taxonomy collections
+        placeholder_key: @self
+        placeholder_value: /blog
+
+    filter.order.by:
+      type: text
+      label: Order By
+      size: medium
+      default: date
+
+    filter.order.dir:
+      type: select
+      size: small
+      label: Order Dir
+      default: 'desc'
+      options:
+        'desc': 'Desc'
+        'asc': 'Asc'
+
+    page_in_filter:
+      type: toggle
+      label: Page in Filter
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+      help: True if the current page must be in the filtered collection
+
+    explicit_pages.process:
+      type: toggle
+      label: Explicit Related Pages
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+      help: Enable this explicit page matching
+
+    explicit_pages.score:
+      type: text
+      label: Explicit Pages Score
+      size: medium
+      default: 100
+      help: Score (0 - 100) to give explicit pages
+
+    taxonomy_match.taxonomy:
+      type: text
+      label: Taxonomy Type
+      size: medium
+      default: tag
+      help: Taxonomy type matching which taxonomy type to use
+
+    taxonomy_match.taxonomy_taxonomy.process:
+      type: toggle
+      label: Taxonomy to Taxonomy Matching
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+      help: Enable this explicit page matching
+
+    taxonomy_match.taxonomy_taxonomy.score_scale:
+      type: select
+      size: small
+      label: Taxonomy to Taxonomy Scores
+      default: 1
+      options:
+        1: 50
+        2: 75
+        3: 100
+
+    taxonomy_match.taxonomy_content.process:
+      type: toggle
+      label: Taxonomy to Content Matching
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+      help: Enable this explicit page matching
+
+    taxonomy_match.taxonomy_content.score_scale:
+      type: select
+      size: small
+      label: Taxonomy to Content Scores
+      default: 1
+      options:
+        1: 20
+        2: 30
+        3: 45
+        4: 60
+        5: 70
+        6: 80
+        7: 90
+        8: 100
+
+    content_match.process:
+      type: toggle
+      label: Content to Content Matching
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+      help: Disable this if you have lots of posts
