@@ -58,7 +58,7 @@ form:
       yaml: true
       label: PLUGIN_REL_PAGES.ITEMS
       help: PLUGIN_REL_PAGES.ITEMS_HELP
-      default: '@page: /blog'
+      default: '@page': '/blog'
 
     filter.order.by:
       type: select
