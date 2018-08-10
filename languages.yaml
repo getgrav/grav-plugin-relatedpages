@@ -122,3 +122,35 @@ ro:
     ADVANCED: Avansat
     TAXONOMY_SCORE_SCALE: Scorul scalei Taxonomie-taxonomie
     CONTENT_SCORE_SCALE: Scorul scalei Taxonomie-conținut
+
+es:
+  PLUGIN_REL_PAGES:
+    BASICS: Ajustes básicos
+    LIMIT: Límite
+    LIMIT_HELP: La cantidad de páginas relacionas que se mostrarán
+    ORDER: Ordenar
+    ORDER_BY: Ordenar por
+    SHOW_SCORE: Mostrar puntos
+    SHOW_SCORE_HELP: Indica si se mostrará la puntuación
+    ITEMS: Elementos
+    ITEMS_HELP: Proporciona colecciones basadas en `@self`, `@page` y `@taxonomy`
+    PAGE_IN_FILTER: Página 'en' filtro
+    PAGE_IN_FILTER_HELP: Activado si la página actual debe estar en la colección filtrada
+    EXPLICIT_PROCESS: Procesar páginas explícitas
+    EXPLICIT_PROCESS_HELP: Activa la relación de páginas explícitas
+    EXPLICIT_SCORE: Puntuación de páginas explícitas
+    EXPLICIT_SCORE_HELP: Una puntuación (entre 0 y 100) para dar un peso las páginas explícitas
+    TAXONOMY_MATCH: Comparación de Tipo de taxonomía
+    TAXONOMY: Taxonomía
+    TAXONOMY_HELP: Qué tipo de taxonomía se usará para relacionar páginas
+    TAXONOMY_TAXONOMY_PROCESS: Taxonomía-taxonomía
+    TAXONOMY_TAXONOMY_PROCESS_HELP: Activa relación de taxonomía a taxonomía
+    TAXONOMY_CONTENT_PROCESS: Taxonomía-contenido
+    TAXONOMY_CONTENT_PROCESS_HELP: Activa relación de taxonomía a contenido
+    CONTENT_MATCH: Relación de tipo de contenido
+    CONTENT_PROCESS: Contenido-contenido
+    CONTENT_PROCESS_HELP: Activa relación de contenido a contenido (NOTA: Desactive esto si tiene mucho contenido)
+    ADVANCED: Avanzado
+    TAXONOMY_SCORE_SCALE: Escala de puntuación Taxonomía-taxonomía
+    CONTENT_SCORE_SCALE: Escala de puntuación Taxonomía-contenido
+    
