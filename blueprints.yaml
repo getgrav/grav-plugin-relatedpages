@@ -118,8 +118,9 @@ form:
       underline: true
 
     taxonomy_match.taxonomy:
-      type: text
-      size: x-small
+      type: textarea
+      yaml: true
+      size: medium
       label: PLUGIN_REL_PAGES.TAXONOMY
       help: PLUGIN_REL_PAGES.TAXONOMY_HELP
       validate:

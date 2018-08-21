@@ -17,7 +17,7 @@ en:
     EXPLICIT_SCORE_HELP: A score ranging from (0 - 100) to give explicit pages a weight
     TAXONOMY_MATCH: Taxonomy Type Matching
     TAXONOMY: Taxonomy
-    TAXONOMY_HELP: Which taxonomy type to use for page matching
+    TAXONOMY_HELP: Which taxonomy type to use for page matching, supports strings or YAML array of multiple taxonomy types
     TAXONOMY_TAXONOMY_PROCESS: Taxonomy-taxonomy
     TAXONOMY_TAXONOMY_PROCESS_HELP: Enable taxonomy to taxonomy matching
     TAXONOMY_CONTENT_PROCESS: Taxonomy-content
