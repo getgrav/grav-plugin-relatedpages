@@ -1,5 +1,5 @@
 name: Related Pages
-version: 1.1.4
+version: 1.2.0
 description: "A highly sophisticated and configurable plugin that calculates related pages in relation to the current page."
 icon: newspaper-o
 author:
@@ -54,11 +54,11 @@ form:
         type: bool
 
     filter.items:
-      type: text
-      yaml: true
+      type: multilevel
       label: PLUGIN_REL_PAGES.ITEMS
-      help: PLUGIN_REL_PAGES.ITEMS_HELP
-      default: '@page: /blog'
+      value_only: true
+      validate: 
+        type: array
 
     filter.order.by:
       type: select
@@ -118,8 +118,9 @@ form:
       underline: true
 
     taxonomy_match.taxonomy:
-      type: text
-      size: x-small
+      type: textarea
+      yaml: true
+      size: medium
       label: PLUGIN_REL_PAGES.TAXONOMY
       help: PLUGIN_REL_PAGES.TAXONOMY_HELP
       validate:

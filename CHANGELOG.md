@@ -1,3 +1,11 @@
+# v1.2.0
+## 08/21/2018
+
+1. [](#new)
+    * Added support for multiple taxonomies [#12](https://github.com/getgrav/grav-plugin-relatedpages/pull/12)
+1. [](#improved)
+    * Languages updates
+    
 # v1.1.4
 ## 07/18/2016
 
