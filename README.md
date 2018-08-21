@@ -54,6 +54,7 @@ explicit_pages:
     score: 100                  # score (0 - 100) to give explicit pages
 taxonomy_match:                 # taxonomy type matching
     taxonomy: tag               # which taxonomy type to use
+#   taxonomy: [category, tag]   # multiple taxonomies example
     taxonomy_taxonomy:
         process: true           # true|false to enable taxonomy to taxonomy matching
         score_scale:            # scores for number of matches
