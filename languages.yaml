@@ -23,8 +23,8 @@ en:
     TAXONOMY_CONTENT_PROCESS: Taxonomy-content
     TAXONOMY_CONTENT_PROCESS_HELP: Enable taxonomy to Content matching
     CONTENT_MATCH: Content Type Matching
-    CONTENT_PROCESS: Content-content
-    CONTENT_PROCESS_HELP: Enable content to content matching (NOTE: Disable if you have lots of content)
+    CONTENT_PROCESS: "Content-content"
+    CONTENT_PROCESS_HELP: "Enable content to content matching (NOTE: Disable if you have lots of content)"
     ADVANCED: Advanced
     TAXONOMY_SCORE_SCALE: Taxonomy-taxonomy score scale
     CONTENT_SCORE_SCALE: Taxonomy-content score scale
@@ -56,7 +56,7 @@ de:
     TAXONOMY_CONTENT_PROCESS_HELP: Aktiviere die Taxonomie für den Inhalts-Abgleich
     CONTENT_MATCH: Abgleich der Inhalts-Typen
     CONTENT_PROCESS: Inhalt-Inhalt
-    CONTENT_PROCESS_HELP: Aktiviere den Inhalt-zu-Inhalt-Abgleich (Beachte: Deaktivieren bei viel Inhalt)
+    CONTENT_PROCESS_HELP: "Aktiviere den Inhalt-zu-Inhalt-Abgleich (Beachte: Deaktivieren bei viel Inhalt)"
     ADVANCED: Erweitert
     TAXONOMY_SCORE_SCALE: Taxonomie-Taxonomie Bewertungsskala
     CONTENT_SCORE_SCALE: Taxonomie-Inhalt Bewertungsskala
@@ -87,7 +87,7 @@ fr:
     TAXONOMY_CONTENT_PROCESS_HELP: Activer la taxonomie pour la correspondance de contenu
     CONTENT_MATCH: Correspondance par type de contenu
     CONTENT_PROCESS: Contenu-contenu
-    CONTENT_PROCESS_HELP: Activer la correspondance de contenu (NOTE : désactivez si vous avez beaucoup de contenu)
+    CONTENT_PROCESS_HELP: "Activer la correspondance de contenu (NOTE : désactivez si vous avez beaucoup de contenu)"
     ADVANCED: Avancés
     TAXONOMY_SCORE_SCALE: Taxonomie-niveau de score de taxonomie
     CONTENT_SCORE_SCALE: Taxonomie-niveau de score de contenu
@@ -118,7 +118,7 @@ nl:
     TAXONOMY_CONTENT_PROCESS_HELP: Inschakelen taxonomie met inhoud matching
     CONTENT_MATCH: Inhoud Type Matching
     CONTENT_PROCESS: Inhoud-inhoud
-    CONTENT_PROCESS_HELP: Inschakelen inhoud met inhoud matching (N.B.: Uitschakelen als je veel inhoud hebt)
+    CONTENT_PROCESS_HELP: "Inschakelen inhoud met inhoud matching (N.B.: Uitschakelen als je veel inhoud hebt)"
     ADVANCED: Geavanceerd
     TAXONOMY_SCORE_SCALE: Taxonomie-taxonomie score schaal
     CONTENT_SCORE_SCALE: Taxonomie-inhoud score schaal
@@ -149,7 +149,7 @@ ro:
     TAXONOMY_CONTENT_PROCESS_HELP: Activează potrivirea după taxonomie - conținut 
     CONTENT_MATCH: Potrivirea după conținut 
     CONTENT_PROCESS: Conținut-conținut
-    CONTENT_PROCESS_HELP: Activează pentru potrivire după conținut (Notă: dezactivați dacă aveți conținut mult)
+    CONTENT_PROCESS_HELP: "Activează pentru potrivire după conținut (Notă: dezactivați dacă aveți conținut mult)"
     ADVANCED: Avansat
     TAXONOMY_SCORE_SCALE: Scorul scalei Taxonomie-taxonomie
     CONTENT_SCORE_SCALE: Scorul scalei Taxonomie-conținut
@@ -180,7 +180,7 @@ es:
     TAXONOMY_CONTENT_PROCESS_HELP: Activa relación de taxonomía a contenido
     CONTENT_MATCH: Relación de tipo de contenido
     CONTENT_PROCESS: Contenido-contenido
-    CONTENT_PROCESS_HELP: Activa relación de contenido a contenido (NOTA: Desactive esto si tiene mucho contenido)
+    CONTENT_PROCESS_HELP: "Activa relación de contenido a contenido (NOTA: Desactive esto si tiene mucho contenido)"
     ADVANCED: Avanzado
     TAXONOMY_SCORE_SCALE: Escala de puntuación Taxonomía-taxonomía
     CONTENT_SCORE_SCALE: Escala de puntuación Taxonomía-contenido
