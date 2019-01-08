@@ -1,3 +1,11 @@
+# v1.2.1
+## 01/08/2018
+
+1. [](#improved)
+    * Languages updates
+1. [](#bugfix)
+  * Fixed deprecated YAML syntax in `relatedpages.yaml` config file
+
 # v1.2.0
 ## 08/21/2018
 
