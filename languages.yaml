@@ -214,4 +214,4 @@ zh:
     CONTENT_PROCESS_HELP: 启用内容到内容匹配（注意：如果内容太多请禁用此项）
     ADVANCED: 高级
     TAXONOMY_SCORE_SCALE: 分类到分类的分数比例
-CONTENT_SCORE_SCALE: 分类到内容的分数比例
+    CONTENT_SCORE_SCALE: 分类到内容的分数比例
