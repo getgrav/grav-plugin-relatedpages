@@ -11,6 +11,8 @@ demo: http://learn.getgrav.org
 keywords: related, plugin
 bugs: https://github.com/getgrav/grav-plugin-relatedpages/issues
 license: MIT
+dependencies:
+  - { name: grav, version: '>=1.5.0' }
 
 form:
   validation: loose
