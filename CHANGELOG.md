@@ -1,3 +1,12 @@
+# v1.2.2
+## 04/15/2019
+
+1. [](#new)
+    * Requires Grav 1.5.0
+1. [](#improved)
+    * Updated type hints from `Page` to `PageInterface`
+    * Fixed ordering of the related pages with same score
+
 # v1.2.1
 ## 01/08/2018
 
