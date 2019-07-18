@@ -185,3 +185,33 @@ es:
     TAXONOMY_SCORE_SCALE: Escala de puntuación Taxonomía-taxonomía
     CONTENT_SCORE_SCALE: Escala de puntuación Taxonomía-contenido
     
+zh:
+  PLUGIN_REL_PAGES:
+    BASICS: 基本设置
+    LIMIT: 数量限制
+    LIMIT_HELP: 要显示的相关文章的数量
+    ORDER: 排序
+    ORDER_BY: 排序依据
+    SHOW_SCORE: 显示评分
+    SHOW_SCORE_HELP: 切换以确定是否应在输出中显示评分
+    ITEMS: 条目
+    ITEMS_HELP: 基于文章集合，支持 `@self`、`@page` 和 `@taxonomy`
+    PAGE_IN_FILTER: 强制过滤页面
+    PAGE_IN_FILTER_HELP: 如果当前页面必须使用过滤集合，请启用此项
+    EXPLICIT_PROCESS: 处理显示页面
+    EXPLICIT_PROCESS_HELP: 启用此项后只匹配显示页面
+    EXPLICIT_SCORE: 显式页面评分
+    EXPLICIT_SCORE_HELP: 给显式页面的评分（0 - 100）
+    TAXONOMY_MATCH: 分类匹配
+    TAXONOMY: 分类
+    TAXONOMY_HELP: 用来匹配页面的分类，支持字符串类型、YAML 数组形式的多个分类
+    TAXONOMY_TAXONOMY_PROCESS: 分类到分类
+    TAXONOMY_TAXONOMY_PROCESS_HELP: 启用分类到分类的匹配
+    TAXONOMY_CONTENT_PROCESS: 分类到内容
+    TAXONOMY_CONTENT_PROCESS_HELP: 启用分类到内容的匹配
+    CONTENT_MATCH: 内容类型匹配
+    CONTENT_PROCESS: 内容到内容
+    CONTENT_PROCESS_HELP: 启用内容到内容匹配（注意：如果内容太多请禁用此项）
+    ADVANCED: 高级
+    TAXONOMY_SCORE_SCALE: 分类到分类的分数比例
+    CONTENT_SCORE_SCALE: 分类到内容的分数比例
