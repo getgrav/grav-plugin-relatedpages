@@ -76,7 +76,7 @@ class RelatedPagesPlugin extends Plugin
         $cache_id = md5('relatedpages'.$page->path().$cache->getKey());
         $this->related_pages = $cache->fetch($cache_id);
 
-        if (1 or $this->related_pages === false) {
+        if ($this->related_pages === false) {
 
             // get all the pages
             $collection = $page->collection($config['filter']);

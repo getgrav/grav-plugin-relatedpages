@@ -1,3 +1,9 @@
+# v1.2.3
+## 01/22/2021
+
+1. [](#improved)
+    * Fixed caching that was broken for ever!!!
+
 # v1.2.2
 ## 04/15/2019
 
