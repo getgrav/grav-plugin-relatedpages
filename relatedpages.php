@@ -76,7 +76,6 @@ class RelatedPagesPlugin extends Plugin
 
         $cache_id = md5('relatedpages' . $page->path() . $cache->getKey());
         $this->related_pages = $cache->fetch($cache_id);
-        $this->related_pages = false;
 
         if ($this->related_pages === false) {
 
