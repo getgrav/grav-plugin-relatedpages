@@ -61,7 +61,14 @@ form:
       type: multilevel
       label: PLUGIN_REL_PAGES.ITEMS
       value_only: true
-      validate: 
+      validate:
+        type: array
+
+    filter.excluded_types:
+      type: array
+      label: PLUGIN_REL_PAGES.EXCLUDED_TYPES
+      value_only: true
+      validate:
         type: array
 
     filter.order.by:
