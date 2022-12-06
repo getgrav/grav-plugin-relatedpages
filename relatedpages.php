@@ -96,7 +96,7 @@ class RelatedPagesPlugin extends Plugin
             }
 
             // perform check if page must be in filter values
-            if ($config['page_in_filter'] && !\in_array($page, iterator_to_array($collection), true)) {
+            if ($config['page_in_filter'] && !array_key_exists($page->path(), $collection->toArray())) {
                 return;
             }
 
