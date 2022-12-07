@@ -1,12 +1,13 @@
 <?php
+
 namespace Grav\Plugin;
 
+use Grav\Common\Cache;
+use Grav\Common\Config\Config;
+use Grav\Common\Debugger;
 use Grav\Common\Page\Interfaces\PageInterface;
-use \Grav\Common\Plugin;
-use \Grav\Common\Cache;
-use \Grav\Common\Debugger;
-use \Grav\Common\Config\Config;
-use \Grav\Common\Page\Pages;
+use Grav\Common\Page\Pages;
+use Grav\Common\Plugin;
 
 class RelatedPagesPlugin extends Plugin
 {
@@ -73,7 +74,7 @@ class RelatedPagesPlugin extends Plugin
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
         ]);
 
-        $cache_id = md5('relatedpages'.$page->path().$cache->getKey());
+        $cache_id = md5('relatedpages' . $page->path() . $cache->getKey());
         $this->related_pages = $cache->fetch($cache_id);
 
         if ($this->related_pages === false) {
@@ -81,8 +82,21 @@ class RelatedPagesPlugin extends Plugin
             // get all the pages
             $collection = $page->collection($config['filter']);
 
+            //If the header of a page has a type and it is included in the excluded types remove it from the collection
+            foreach ($collection as $pageKey) {
+                $header = $pageKey->header();
+                if (
+                    property_exists($header, 'type') &&
+                    array_key_exists('filter', $config) &&
+                    array_key_exists('excluded_types', $config['filter']) &&
+                    in_array($header->type, $config['filter']['excluded_types'])
+                ) {
+                    $collection->remove($pageKey);
+                }
+            }
+
             // perform check if page must be in filter values
-            if ($config['page_in_filter'] && !\in_array($page, iterator_to_array($collection), true)) {
+            if ($config['page_in_filter'] && !array_key_exists($page->path(), $collection->toArray())) {
                 return;
             }
 
@@ -129,11 +143,11 @@ class RelatedPagesPlugin extends Plugin
                         // Check for multiple taxonomies.
                         $taxonomy_list = $config['taxonomy_match']['taxonomy'];
                         // Support the single value by converting it to array.
-                        if (!\is_array ($taxonomy_list)) {
+                        if (!\is_array($taxonomy_list)) {
                             $taxonomy_list = array($taxonomy_list);
                         }
                         $score_scale = $config['taxonomy_match']['taxonomy_taxonomy']['score_scale'];
-                        
+
                         $score = 0;
                         $has_matches = false;
                         foreach ($taxonomy_list as $taxonomy) {
@@ -151,13 +165,13 @@ class RelatedPagesPlugin extends Plugin
                                         } else {
                                             $score += max(array_keys($score_scale));
                                         }
-                                        
+
                                         $has_matches = true;
                                     }
                                 }
                             }
                         }
-                        
+
                         if ($has_matches) {
                             $taxonomy_taxonomy_matches[$item->path()] = $score;
                         }
@@ -169,7 +183,7 @@ class RelatedPagesPlugin extends Plugin
                         // Check for multiple taxonomies.
                         $taxonomy_list = $config['taxonomy_match']['taxonomy'];
                         // Support the single value by converting it to array.
-                        if (!is_array ($taxonomy_list)) {
+                        if (!is_array($taxonomy_list)) {
                             $taxonomy_list = array($taxonomy_list);
                         }
                         $score_scale = $config['taxonomy_match']['taxonomy_content']['score_scale'];
@@ -179,7 +193,7 @@ class RelatedPagesPlugin extends Plugin
                         foreach ($taxonomy_list as $taxonomy) {
                             if (isset($page_taxonomies[$taxonomy])) {
                                 $page_taxonomy = $page_taxonomies[$taxonomy];
-                                $count = $this->substringCountArray($item->title().' '.$item->rawMarkdown(), $page_taxonomy);
+                                $count = $this->substringCountArray($item->title() . ' ' . $item->rawMarkdown(), $page_taxonomy);
 
                                 if ($count > 0) {
                                     if (array_key_exists($count, $score_scale)) {
@@ -187,12 +201,12 @@ class RelatedPagesPlugin extends Plugin
                                     } else {
                                         $score += max(array_keys($score_scale));
                                     }
-                                    
+
                                     $has_matches = true;
                                 }
                             }
                         }
-                        
+
                         if ($has_matches) {
                             $taxonomy_content_matches[$item->path()] = $score;
                         }
@@ -243,7 +257,7 @@ class RelatedPagesPlugin extends Plugin
 
     protected function mergeRelatedPages(array $pages)
     {
-        foreach ((array) $pages as $path => $score) {
+        foreach ((array)$pages as $path => $score) {
             $page_exists = array_key_exists($path, $this->related_pages);
             if ($score > $this->config['score_threshold'] &&
                 (!$page_exists || ($page_exists && $score > $this->related_pages[$path]))) {

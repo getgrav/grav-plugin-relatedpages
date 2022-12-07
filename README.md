@@ -45,6 +45,9 @@ score_threshold: 20             # minimum score needed to show up in the list
 filter:                         # filter a configurable collection of pages to compare
     items:
         @page: /blog            # supports @self, @page, and @taxonomy collections
+    excluded_types:             # exclude certain type of content if the header contains the type of one in the list
+        - quote
+        - video
     order:
         by: date                # order type by default
         dir: desc               # order direction
