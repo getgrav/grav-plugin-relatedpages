@@ -1,5 +1,5 @@
 # v1.2.4
-## mm/dd/2022
+## 12/06/2022
 
 1. [](#bugfix)
     * Fix broken "page in collection" test that was causing plugin not to function 
