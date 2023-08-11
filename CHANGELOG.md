@@ -1,5 +1,5 @@
 # v1.2.5
-## mm/dd/2023
+## 08/11/2023
 
 1. [](#improved)
    * Use pages cache ID for more reliable caching
