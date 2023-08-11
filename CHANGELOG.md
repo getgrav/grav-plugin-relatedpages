@@ -1,3 +1,11 @@
+# v1.2.5
+## 08/11/2023
+
+1. [](#improved)
+   * Use pages cache ID for more reliable caching
+1. [](#bugfix)
+   * Fixed a bug when taxonomy matches > scores provided
+
 # v1.2.4
 ## 12/06/2022
 

@@ -74,7 +74,7 @@ class RelatedPagesPlugin extends Plugin
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
         ]);
 
-        $cache_id = md5('relatedpages' . $page->path() . $cache->getKey());
+        $cache_id = md5('relatedpages' . $page->path() . $pages->getPagesCacheId());
         $this->related_pages = $cache->fetch($cache_id);
 
         if ($this->related_pages === false) {
@@ -163,7 +163,7 @@ class RelatedPagesPlugin extends Plugin
                                         if (array_key_exists($count, $score_scale)) {
                                             $score += $score_scale[$count];
                                         } else {
-                                            $score += max(array_keys($score_scale));
+                                            $score += $score_scale[max(array_keys($score_scale))];
                                         }
 
                                         $has_matches = true;
@@ -199,7 +199,7 @@ class RelatedPagesPlugin extends Plugin
                                     if (array_key_exists($count, $score_scale)) {
                                         $score += $score_scale[$count];
                                     } else {
-                                        $score += max(array_keys($score_scale));
+                                        $score += $score_scale[max(array_keys($score_scale))];
                                     }
 
                                     $has_matches = true;
