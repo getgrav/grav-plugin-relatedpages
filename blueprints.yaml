@@ -1,7 +1,7 @@
 name: Related Pages
 slug: relatedpages
 type: plugin
-version: 1.2.4
+version: 1.2.5
 description: "A highly sophisticated and configurable plugin that calculates related pages in relation to the current page."
 icon: newspaper-o
 author:
