@@ -214,7 +214,7 @@ class RelatedPagesPlugin extends Plugin
 
                     // compute score of content to content matches
                     if ($process_content) {
-                        similar_text($page->rawMarkdown(), $item->rawMarkdown(), $score);
+                        similar_text((string) $page->rawMarkdown(), (string) $item->rawMarkdown(), $score);
                         $content_matches[$item->path()] = (int)$score;
                     }
                 }
@@ -250,7 +250,7 @@ class RelatedPagesPlugin extends Plugin
     {
         $count = 0;
         foreach ((array)$needle as $substring) {
-            $count += substr_count(strtolower($haystack), strtolower($substring));
+            $count += substr_count(strtolower((string) $haystack), strtolower((string) $substring));
         }
         return $count;
     }
