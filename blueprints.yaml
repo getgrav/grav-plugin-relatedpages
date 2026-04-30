@@ -1,7 +1,7 @@
 name: Related Pages
 slug: relatedpages
 type: plugin
-version: 1.2.5
+version: 1.2.6
 description: "A highly sophisticated and configurable plugin that calculates related pages in relation to the current page."
 icon: newspaper-o
 author:
@@ -13,6 +13,9 @@ demo: http://learn.getgrav.org
 keywords: related, plugin
 bugs: https://github.com/getgrav/grav-plugin-relatedpages/issues
 license: MIT
+compatibility:
+  grav: ['1.7', '2.0']
+
 dependencies:
   - { name: grav, version: '>=1.5.0' }
 
