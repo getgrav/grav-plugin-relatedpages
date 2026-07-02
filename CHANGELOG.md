@@ -1,3 +1,11 @@
+# v1.2.7
+## 07/02/2026
+
+1. [](#improved)
+    * Related pages are no longer calculated on pages outside the configured collection, so the home page, listings and other unrelated pages render without the extra work.
+    * The empty result on those pages is now cached, so they no longer rebuild the related list on every request.
+    * When only taxonomy matching is enabled, related pages are found through the taxonomy index instead of loading every page in the collection.
+
 # v1.2.6
 ## 04/30/2026
 
