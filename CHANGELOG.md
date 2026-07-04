@@ -1,5 +1,5 @@
 # v1.2.7
-## 07/02/2026
+## 07/04/2026
 
 1. [](#improved)
     * Related pages are no longer calculated on pages outside the configured collection, so the home page, listings and other unrelated pages render without the extra work.
