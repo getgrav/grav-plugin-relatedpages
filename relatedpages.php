@@ -75,35 +75,41 @@ class RelatedPagesPlugin extends Plugin
         ]);
 
         $cache_id = md5('relatedpages' . $page->path() . $pages->getPagesCacheId());
-        $this->related_pages = $cache->fetch($cache_id);
+        $cached = $cache->fetch($cache_id);
 
-        if ($this->related_pages === false) {
+        if ($cached !== false) {
+            $this->related_pages = $cached;
+            $debugger->addMessage('RelatedPages Plugin cache hit.');
+            return;
+        }
 
-            // get all the pages
-            $collection = $page->collection($config['filter']);
+        // Resolve the candidate collection. Routes come from the page index, so
+        // this does not load the body of every page on the site.
+        $collection = $page->collection($config['filter']);
 
-            //If the header of a page has a type and it is included in the excluded types remove it from the collection
-            foreach ($collection as $pageKey) {
-                $header = $pageKey->header();
-                if (
-                    property_exists($header, 'type') &&
-                    array_key_exists('filter', $config) &&
-                    array_key_exists('excluded_types', $config['filter']) &&
-                    in_array($header->type, $config['filter']['excluded_types'])
-                ) {
-                    $collection->remove($pageKey);
-                }
+        // Related pages only apply on pages inside the filtered collection
+        // (typically blog posts). Decide that from the collection keys alone — no
+        // page content is loaded — so ordinary pages (home, listings, etc.) skip
+        // all the matching work below. Cache the empty result so those pages don't
+        // rebuild this on every request.
+        if (!empty($config['page_in_filter'])) {
+            $in_filter = array_key_exists($page->path(), $collection->toArray());
+            // A current page whose own type is excluded never shows related pages.
+            if ($in_filter && $this->isExcludedType($page->header(), $config)) {
+                $in_filter = false;
             }
-
-            // perform check if page must be in filter values
-            if ($config['page_in_filter'] && !array_key_exists($page->path(), $collection->toArray())) {
+            if (!$in_filter) {
+                $this->related_pages = [];
+                $cache->save($cache_id, $this->related_pages);
                 return;
             }
+        }
 
-            // reset array
-            $this->related_pages = [];
-            $debugger->addMessage('RelatedPages Plugin cache miss. Rebuilding...');
+        // reset array
+        $this->related_pages = [];
+        $debugger->addMessage('RelatedPages Plugin cache miss. Rebuilding...');
 
+        {
             // check for explicit related pages
             if ($config['explicit_pages']['process']) {
                 $page_header = $page->header();
@@ -132,8 +138,23 @@ class RelatedPagesPlugin extends Plugin
                 $content_matches = [];
                 $page_taxonomies = $page->taxonomy();
 
-                foreach ($collection as $item) {
+                // Content-based scoring needs every candidate's text, so it must
+                // scan the whole collection. When only taxonomy-to-taxonomy scoring
+                // is active, pull the candidates that share a taxonomy value from
+                // the taxonomy index instead — that uses targeted index lookups
+                // when available and only loads pages that can actually match.
+                $needs_full_scan = $process_taxonomy2content || $process_content;
+                $candidates = $needs_full_scan
+                    ? $collection
+                    : $this->candidatesFromTaxonomy($collection, $config, $page_taxonomies);
+
+                foreach ($candidates as $item) {
                     if ($page === $item) {
+                        continue;
+                    }
+
+                    // Skip pages whose type is excluded so they never rank.
+                    if ($this->isExcludedType($item->header(), $config)) {
                         continue;
                     }
 
@@ -232,10 +253,53 @@ class RelatedPagesPlugin extends Plugin
             }
 
             $cache->save($cache_id, $this->related_pages);
-        } else {
-            $debugger->addMessage("RelatedPages Plugin cache hit.");
         }
 
+    }
+
+    /**
+     * True when the page header carries a type listed in the filter's excluded_types.
+     */
+    protected function isExcludedType($header, $config)
+    {
+        return property_exists($header, 'type') &&
+            array_key_exists('filter', $config) &&
+            array_key_exists('excluded_types', $config['filter']) &&
+            in_array($header->type, $config['filter']['excluded_types']);
+    }
+
+    /**
+     * Candidate pages that share a taxonomy value with the current page, pulled
+     * from the taxonomy index and scoped to the filtered collection. Falls back to
+     * the full collection when the page has none of the configured taxonomy values.
+     */
+    protected function candidatesFromTaxonomy($collection, $config, array $page_taxonomies)
+    {
+        $taxonomy_list = $config['taxonomy_match']['taxonomy'];
+        if (!\is_array($taxonomy_list)) {
+            $taxonomy_list = array($taxonomy_list);
+        }
+
+        $query = [];
+        foreach ($taxonomy_list as $taxonomy) {
+            if (!empty($page_taxonomies[$taxonomy])) {
+                $query[$taxonomy] = $page_taxonomies[$taxonomy];
+            }
+        }
+
+        // No taxonomy values to match on: nothing can score, so score nothing.
+        if (!$query) {
+            return new \Grav\Common\Page\Collection();
+        }
+
+        /** @var \Grav\Common\Taxonomy $taxonomy_map */
+        $taxonomy_map = $this->grav['taxonomy'];
+        $shared = $taxonomy_map->findTaxonomy($query, 'or');
+
+        // Keep only pages that are also in the configured filter collection.
+        $scoped = array_intersect_key($shared->toArray(), $collection->toArray());
+
+        return new \Grav\Common\Page\Collection($scoped);
     }
 
     /**
