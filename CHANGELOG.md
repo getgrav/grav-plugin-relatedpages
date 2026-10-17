@@ -1,3 +1,9 @@
+# v1.2.8
+## 10/16/2026
+
+1. [](#bugfix)
+    * Fixed a fatal error on PHP 8 when the related-pages collection includes a folder with no page file, such as one left holding only images after a page was moved [#31](https://github.com/getgrav/grav-plugin-relatedpages/issues/31)
+
 # v1.2.7
 ## 07/04/2026
 

@@ -153,8 +153,16 @@ class RelatedPagesPlugin extends Plugin
                         continue;
                     }
 
+                    // A folder with no page file (e.g. media left behind after a
+                    // page was moved) has no header and no route, so it can't be
+                    // a related page.
+                    $item_header = $item->header();
+                    if (!\is_object($item_header)) {
+                        continue;
+                    }
+
                     // Skip pages whose type is excluded so they never rank.
-                    if ($this->isExcludedType($item->header(), $config)) {
+                    if ($this->isExcludedType($item_header, $config)) {
                         continue;
                     }
 
@@ -262,7 +270,8 @@ class RelatedPagesPlugin extends Plugin
      */
     protected function isExcludedType($header, $config)
     {
-        return property_exists($header, 'type') &&
+        return \is_object($header) &&
+            property_exists($header, 'type') &&
             array_key_exists('filter', $config) &&
             array_key_exists('excluded_types', $config['filter']) &&
             in_array($header->type, $config['filter']['excluded_types']);
