@@ -1,3 +1,9 @@
+# v1.2.9
+## 11/25/2026
+
+1. [](#bugfix)
+    * Added the Score Threshold setting to the plugin's admin settings, so the minimum score a page needs to be listed can be changed without editing the YAML [#32](https://github.com/getgrav/grav-plugin-relatedpages/issues/32)
+
 # v1.2.8
 ## 10/16/2026
 

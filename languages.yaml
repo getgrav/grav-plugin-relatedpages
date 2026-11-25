@@ -7,6 +7,8 @@ en:
     ORDER_BY: Ordery by
     SHOW_SCORE: Show score
     SHOW_SCORE_HELP: Toggle to determine if scores should be displayed in output
+    SCORE_THRESHOLD: Score threshold
+    SCORE_THRESHOLD_HELP: Pages need a score above this (0 to 100) to be listed
     ITEMS: Items
     ITEMS_HELP: Supports `@self`, `@page`, and `@taxonomy` based collections
     PAGE_IN_FILTER: Page 'in' filter
@@ -40,6 +42,8 @@ de:
     ORDER_BY: Sortiert nach
     SHOW_SCORE: Zeige Bewertung
     SHOW_SCORE_HELP: Umschalter, ob die Bewertung in der Ausgabe angezeigt werden soll
+    SCORE_THRESHOLD: Mindestbewertung
+    SCORE_THRESHOLD_HELP: Seiten brauchen eine höhere Bewertung als diese (0 bis 100), um gelistet zu werden
     ITEMS: Elemente
     ITEMS_HELP: Unterstützt `@self`, `@page`, und `@taxonomy` basierte Sammlungen (collections)
     PAGE_IN_FILTER: Seite 'drin' Filter
@@ -72,6 +76,8 @@ fr:
     ORDER_BY: Classement par
     SHOW_SCORE: Afficher le score
     SHOW_SCORE_HELP: Activer/désactiver afin de déterminer si les scores doivent être affichés en sortie
+    SCORE_THRESHOLD: Score minimum
+    SCORE_THRESHOLD_HELP: Les pages doivent avoir un score supérieur à cette valeur (0 à 100) pour être listées
     ITEMS: Éléments
     ITEMS_HELP: Prise en charge des collections basées sur `@self`, `@page` et `@taxonomy`
     PAGE_IN_FILTER: Page 'dans' le filtre
@@ -104,6 +110,8 @@ nl:
     ORDER_BY: Sorteer op
     SHOW_SCORE: Toon score
     SHOW_SCORE_HELP: Schakel om, om te bepalen of scores moeten worden getoond in de uitvoer
+    SCORE_THRESHOLD: Minimale score
+    SCORE_THRESHOLD_HELP: "Pagina's moeten een hogere score hebben dan deze (0 tot 100) om getoond te worden"
     ITEMS: Items
     ITEMS_HELP: Ondersteunt collecties gebaseerd op `@self`, `@page`, en `@taxonomy`
     PAGE_IN_FILTER: Pagina 'in' filter
@@ -136,6 +144,8 @@ ro:
     ORDER_BY: Ordonează după
     SHOW_SCORE: Arată scorul
     SHOW_SCORE_HELP: Comutați pentru afișarea scorurilor
+    SCORE_THRESHOLD: Scor minim
+    SCORE_THRESHOLD_HELP: Paginile au nevoie de un scor mai mare decât acesta (0 - 100) pentru a fi listate
     ITEMS: Articole
     ITEMS_HELP: Acceptă colecții bazate pe `@self`, `@page` și `@taxonomy`
     PAGE_IN_FILTER: Filtru 'in' pagină
@@ -168,6 +178,8 @@ es:
     ORDER_BY: Ordenar por
     SHOW_SCORE: Mostrar puntos
     SHOW_SCORE_HELP: Indica si se mostrará la puntuación
+    SCORE_THRESHOLD: Puntuación mínima
+    SCORE_THRESHOLD_HELP: Las páginas necesitan una puntuación mayor que esta (0 a 100) para aparecer
     ITEMS: Elementos
     ITEMS_HELP: Proporciona colecciones basadas en `@self`, `@page` y `@taxonomy`
     PAGE_IN_FILTER: Página 'en' filtro

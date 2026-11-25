@@ -60,6 +60,17 @@ form:
       validate:
         type: bool
 
+    score_threshold:
+      type: text
+      size: x-small
+      label: PLUGIN_REL_PAGES.SCORE_THRESHOLD
+      help: PLUGIN_REL_PAGES.SCORE_THRESHOLD_HELP
+      default: 20
+      validate:
+        type: int
+        min: 0
+        max: 100
+
     filter.items:
       type: multilevel
       label: PLUGIN_REL_PAGES.ITEMS
